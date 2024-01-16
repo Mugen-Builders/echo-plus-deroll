@@ -8,7 +8,7 @@ import {DeployerPlugin} from "@contracts/proxy/DeployerPlugin.sol";
 contract DeployDeployerPlugin is Script {
     function run() external {
         vm.startBroadcast();
-        DeployerPlugin proxy = new DeployerPlugin{salt: bytes32(abi.encode(1596))}();
+        DeployerPlugin proxy = new DeployerPlugin();
         vm.stopBroadcast();
         console.log("Proxy deployer plugin address:", address(proxy), "at network:", block.chainid); 
     }

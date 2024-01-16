@@ -28,14 +28,14 @@ export HEADER
 START_LOG = @echo "======================================================= START OF LOG ========================================================="
 END_LOG = @echo "======================================================== END OF LOG =========================================================="
 
-ifneq ($(NETWORK), "localhost")
-	RPC_URL := $(RPC_URL)
-	PRIVATE_KEY := $(PRIVATE_KEY)
-	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(BLOCKSCAN_API_KEY) -vvvvv
-else
+ifeq ($(NETWORK), "localhost")
 	RPC_URL := "http://localhost:8545"
 	PRIVATE_KEY := "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -vvvvv
+else
+	RPC_URL := $(RPC_URL)
+	PRIVATE_KEY := $(PRIVATE_KEY)
+	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(BLOCKSCAN_API_KEY) -vvvvv
 endif
 
 define test_contracts
