@@ -1,6 +1,6 @@
 -include .env
 
-.PHONY: deploy env
+.PHONY: deploy env test
 
 info: header
 
@@ -46,7 +46,6 @@ endef
 
 define deploy_contracts
 	$(START_LOG)
-	@echo $(DEPLOY_NETWORK_ARGS)
 	@forge script $(DEPLOY_NETWORK_ARGS)
 	$(END_LOG)
 endef
