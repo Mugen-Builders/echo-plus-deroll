@@ -50,7 +50,8 @@ define deploy_contracts
 	$(END_LOG)
 endef
 
-env: .env.tmpl
+setup: .env.tmpl
+	forge install
 	cp .env.tmpl .env
 
 test:

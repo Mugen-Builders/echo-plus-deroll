@@ -89,5 +89,5 @@ make test
 ```
 
 ```bash
-make env
+make setup
 ```

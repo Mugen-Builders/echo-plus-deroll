@@ -4,9 +4,7 @@ pragma solidity ^0.8.20;
 import {Test} from "forge-std/Test.sol";
 import {console} from "forge-std/console.sol";
 import {DeployerPlugin} from "@contracts/proxy/DeployerPlugin.sol";
-import {ERC20Deroll} from "@contracts/token/ERC20/ERC20Deroll.sol";
 import {ERC721Deroll} from "@contracts/token/ERC721/ERC721Deroll.sol";
-import {ERC1155Deroll} from "@contracts/token/ERC1155/ERC1155Deroll.sol";
 
 contract TestERC721Deroll is Test {
     DeployerPlugin deployerPlugin;
