@@ -1,6 +1,11 @@
 # Contracts
 
-The contracts found here aim to onchain represent the assets and some actions that can be performed based on the logic contained within the backend of the Cartesi application through the voucher API when internally invoked.
+This contracts section found here aim to onchain represent the assets and some actions that can be performed based on the logic contained within the backend of the Cartesi application through the voucher API when internally invoked.
+
+> [!IMPORTANT]
+> To interact with this project snippet, it is necessary to install Foundry, a toolkit for Ethereum application development. Follow the instructions provided [here](https://getfoundry.sh/)
+
+## 1. General Architechture:
 
 ```mermaid
 graph TD
@@ -23,6 +28,8 @@ graph TD
     Application -- action --> DeployerPlugin
 ```
 
+## 2. How the DeployerPlugin works:
+
 ```mermaid
 graph TD
     classDef core fill:#ffe95a,color:#000
@@ -41,6 +48,8 @@ graph TD
     DeployerPlugin -- deploy --> AnyContract
 ```
 
+### - Interacting w/ ERC20Deroll: 
+
 ```mermaid
 graph TD
     classDef core fill:#ffe95a,color:#000
@@ -53,6 +62,8 @@ graph TD
     ERC20Deroll -- transfer --> Anyone
     ERC20Deroll -- ... --> Anyone
 ```
+
+### - Interacting w/ ERC721Deroll:
 
 ```mermaid
 graph TD
@@ -67,6 +78,8 @@ graph TD
     ERC721Deroll -- ... --> Anyone
 ```
 
+### - Interacting w/ ERC1155Deroll:
+
 ```mermaid
 graph TD
     classDef core fill:#ffe95a,color:#000
@@ -80,8 +93,10 @@ graph TD
     ERC1155Deroll -- ... --> Anyone
 ```
 
+## 3. How to run:
+
 ```bash
-make deploy
+make setup
 ```
 
 ```bash
@@ -89,5 +104,5 @@ make test
 ```
 
 ```bash
-make setup
+make deploy
 ```
