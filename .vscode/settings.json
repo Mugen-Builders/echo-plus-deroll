@@ -1,0 +1,8 @@
+{
+    "conventionalCommits.scopes": [
+        "contracts",
+        "tests",
+        "documentation"
+    ],
+    "git.ignoreLimitWarning": true
+}

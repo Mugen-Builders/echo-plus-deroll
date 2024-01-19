@@ -24,7 +24,7 @@ const handleInspect: InspectRequestHandler = async (data) => {
 
 const main = async () => {
   const { POST } = createClient<paths>({ baseUrl: rollupServer });
-  let status: RequestHandlerResult = "accept";
+  let status: RequestHandlerResult = P"accept";
   while (true) {
     const { response } = await POST("/finish", {
       body: { status },
