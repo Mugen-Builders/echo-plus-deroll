@@ -3,5 +3,6 @@
         "contracts",
         "tests",
         "documentation"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

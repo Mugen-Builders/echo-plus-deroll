@@ -6,7 +6,8 @@
 	],
 	"settings": {
 		"conventionalCommits.scopes": [
-			"contracts"
+			"contracts",
+			"setup"
 		]
 	}
 }

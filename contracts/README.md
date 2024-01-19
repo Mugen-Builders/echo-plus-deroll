@@ -7,6 +7,7 @@ This contracts section found here aim to onchain represent the assets and some a
 
 ## 1. General Architechture:
 
+## General Architecture
 ```mermaid
 graph TD
     classDef core fill:#ffe95a,color:#000
@@ -18,14 +19,21 @@ graph TD
     ERC1155Deroll:::core
     DeployerPlugin:::core
     Application:::external
-    Backend:::master
+    CRF[Cartesi Rollups Framework]:::master
+    Frontend:::external
+    
+    Frontend --> CRF
+    CRF --> Application
 
-    Backend -- voucher --> Application
-
-    Application -- action --> ERC20Deroll
-    Application -- action --> ERC721Deroll
-    Application -- action --> ERC1155Deroll
-    Application -- action --> DeployerPlugin
+    Frontend --> DeployerPlugin
+    Frontend --> ERC20Deroll
+    Frontend --> ERC721Deroll
+    Frontend --> ERC1155Deroll
+    
+    Application --> ERC20Deroll
+    Application --> ERC721Deroll
+    Application --> ERC1155Deroll
+    Application --> DeployerPlugin
 ```
 
 ## 2. How the DeployerPlugin works:
@@ -62,6 +70,7 @@ graph TD
 
     ERC20Deroll -- mint --> Anyone
     ERC20Deroll -- transfer --> Anyone
+    ERC20Deroll -- approve --> Anyone
     ERC20Deroll -- ... --> Anyone
 ```
 
@@ -77,6 +86,7 @@ graph TD
 
     ERC721Deroll -- safeMint --> Anyone
     ERC721Deroll -- transfer --> Anyone
+    ERC721Deroll -- approve --> Anyone
     ERC721Deroll -- ... --> Anyone
 ```
 
@@ -92,6 +102,7 @@ graph TD
 
     ERC1155Deroll -- mint --> Anyone
     ERC1155Deroll -- transfer --> Anyone
+    ERC1155Deroll -- approve --> Anyone
     ERC1155Deroll -- ... --> Anyone
 ```
 
