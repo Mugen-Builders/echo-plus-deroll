@@ -25,34 +25,4 @@ contract DeployerPlugin {
         emit DeployContract(msg.sender, addr);
         return addr;
     }
-
-    function deployERC20Deroll(
-        address application
-    ) external payable returns (ERC20Deroll) {
-        ERC20Deroll asset = new ERC20Deroll(application);
-        if (address(asset) == address(0))
-            revert DeployFailed(msg.sender, address(asset));
-        emit DeployContract(msg.sender, address(asset));
-        return asset;
-    }
-
-    function deployERC721Deroll(
-        address application
-    ) external payable returns (ERC721Deroll) {
-        ERC721Deroll asset = new ERC721Deroll(application);
-        if (address(asset) == address(0))
-            revert DeployFailed(msg.sender, address(asset));
-        emit DeployContract(msg.sender, address(asset));
-        return asset;
-    }
-
-    function deployERC1155Deroll(
-        address application
-    ) external payable returns (ERC1155Deroll) {
-        ERC1155Deroll asset = new ERC1155Deroll(application);
-        if (address(asset) == address(0))
-            revert DeployFailed(msg.sender, address(asset));
-        emit DeployContract(msg.sender, address(asset));
-        return asset;
-    }
 }

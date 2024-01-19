@@ -35,7 +35,7 @@ ifeq ($(NETWORK), "localhost")
 else
 	RPC_URL := $(RPC_URL)
 	PRIVATE_KEY := $(PRIVATE_KEY)
-	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(BLOCKSCAN_API_KEY) -vvvvv
+	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -vvvvv
 endif
 
 define test_contracts
