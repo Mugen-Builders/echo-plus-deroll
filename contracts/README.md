@@ -8,7 +8,7 @@ This contracts section found here aim to onchain represent the assets and some a
 ## 1. General Architechture:
 
 
-The general interaction architecture among the contracts presented here with other parts of the system features a layer of contracts representing assets/tokens, which will later serve as objects for system interaction. Additionally, within this layer of contracts, there is an implementation of the proxy pattern that allows the application contract to deploy other contracts, acting as a factory. The actions schematized from the frontend directly with Deroll's assets mostly involve calling the approve(address,uint256) function of the assets by the user to the portals of the CRF, i.e., Cartesi Rollups Framework. To learn more about how CRF works, [click here](https://docs.cartesi.io/cartesi-rollups/).
+The general interaction architecture among the contracts presented here with other parts of the system features a layer of contracts representing assets/tokens, which will later serve as objects for system interaction. Additionally, within this layer of contracts, there is an implementation of the proxy pattern that allows the application contract to deploy other contracts, acting as a factory. The actions schematized from the frontend directly with Deroll's assets mostly involve calling the approve(address,uint256) function of the assets by the user to the portals of the CRF, i.e., [Cartesi Rollups Framework](https://docs.cartesi.io/cartesi-rollups/).
 ```mermaid
 graph TD
     classDef core fill:#ffe95a,color:#000
@@ -57,7 +57,7 @@ graph TD
 
 ## 3. Vouchers X Deroll Assets:
 
-The Cartesi DApps deployed on the networks supported by this application can, through user interactions using vouchers, handle the most commonly used patterns of assets supported by the CRF portals, i.e., Cartesi Rollups Framework.
+The Cartesi DApps deployed on the networks supported by this application can, through user interactions using vouchers, handle the most commonly used patterns of assets supported by the CRF portals, i.e., [Cartesi Rollups Framework](https://docs.cartesi.io/cartesi-rollups/).
 
 ### - Interacting w/ ERC20Deroll: 
 
