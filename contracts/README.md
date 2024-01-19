@@ -51,7 +51,7 @@ graph TD
     AnyContract:::core
     DeployerPlugin:::external
 
-    Application -- deployAnyContract(bytes) --> DeployerPlugin
+    Application -- deployAnyContract --> DeployerPlugin
     DeployerPlugin -- deploy --> AnyContract
 ```
 
