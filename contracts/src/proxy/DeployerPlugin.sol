@@ -6,8 +6,8 @@ import {ERC721Deroll} from "@contracts/token/ERC721/ERC721Deroll.sol";
 import {ERC1155Deroll} from "@contracts/token/ERC1155/ERC1155Deroll.sol";
 
 contract DeployerPlugin {
-    event DeployContract(address sender, address asset);
     error DeployFailed(address sender, address asset);
+    event DeployContract(address sender, address asset);
 
     receive() external payable {}
 

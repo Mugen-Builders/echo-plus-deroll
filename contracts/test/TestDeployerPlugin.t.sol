@@ -12,13 +12,17 @@ contract TestDeployerPlugin is Test {
     address application = address(1);
 
     function setUp() public {
-        deployerPlugin = (new DeployerPlugin){salt: bytes32(abi.encode(1596))}();
+        deployerPlugin = (new DeployerPlugin){
+            salt: bytes32(abi.encode(1596))
+        }();
     }
 
     function testDeployAnyContract() public {
         bytes memory bytecode = type(ERC20Deroll).creationCode;
         vm.prank(application);
-        address addr = deployerPlugin.deployAnyContract(abi.encodePacked(bytecode, abi.encode(application)));
+        address addr = deployerPlugin.deployAnyContract(
+            abi.encodePacked(bytecode, abi.encode(application))
+        );
         assertTrue(addr != address(0));
     }
 }
