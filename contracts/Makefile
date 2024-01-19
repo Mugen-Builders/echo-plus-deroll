@@ -29,11 +29,11 @@ START_LOG = @echo "======================================================= START
 END_LOG = @echo "======================================================== END OF LOG =========================================================="
 
 ifeq ($(NETWORK), "localhost")
-	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -vvvvv
+	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -vvvvv
 else
 	RPC_URL := $(RPC_URL)
 	PRIVATE_KEY := $(PRIVATE_KEY)
-	DEPLOY_NETWORK_ARGS := script/DeployDeployerPlugin.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -vvvvv
+	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -vvvvv
 endif
 
 define test_contracts
