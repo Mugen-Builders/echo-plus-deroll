@@ -2,14 +2,13 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
-contract ERC1155Deroll is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
-    constructor() ERC1155("") Ownable(msg.sender) {}
+contract ERC1155Deroll is ERC1155, ERC1155Burnable, ERC1155Supply {
+    constructor() ERC1155("") {}
 
-    function setURI(string memory newuri) public onlyOwner {
+    function setURI(string memory newuri) public {
         _setURI(newuri);
     }
 
@@ -18,7 +17,7 @@ contract ERC1155Deroll is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public onlyOwner {
+    ) public {
         _mint(account, id, amount, data);
     }
 
@@ -27,7 +26,7 @@ contract ERC1155Deroll is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
-    ) public onlyOwner {
+    ) public {
         _mintBatch(to, ids, amounts, data);
     }
 

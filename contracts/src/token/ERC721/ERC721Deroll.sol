@@ -11,14 +11,13 @@ contract ERC721Deroll is
     ERC721,
     ERC721Enumerable,
     ERC721URIStorage,
-    ERC721Burnable,
-    Ownable
+    ERC721Burnable
 {
     uint256 private _nextTokenId;
 
-    constructor() Ownable(msg.sender) ERC721("ERC721Deroll", "ERC721D") {}
+    constructor() ERC721("ERC721Deroll", "ERC721D") {}
 
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to, string memory uri) public {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
