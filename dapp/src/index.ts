@@ -3,9 +3,9 @@ import { createRouter } from "@deroll/router";
 import { createWallet } from "@deroll/wallet";
 import { decodeFunctionData, encodeFunctionData, parseAbi, Address} from "viem";
 
-console.log("Creating app...");
+const ROLLUP_SERVER = process.env.ROLLUP_HTTP_SERVER_URL || 'http://127.0.0.1:5004';
 
-const app = createApp({ url: "http://127.0.0.1:5004" });
+const app = createApp({ url: ROLLUP_SERVER });
 
 const abi = parseAbi([
     "function safeMint(address to, string uri)",
@@ -39,8 +39,8 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                 return "accept";
             case "withdrawERC20":
                 [token, to, amount] = args;
-                app.createVoucher(wallet.withdrawERC20(token, to, amount));
-                console.log(`The account ${metadata.msg_sender} is withdrawing ${amount} tokens of ${token} at ${metadata.timestamp}.`)
+                app.createVoucher(wallet.withdrawERC20(token, to, amount * BigInt(1e18)));
+                console.log(`The account ${metadata.msg_sender} is withdrawing ${amount * BigInt(1e18)} tokens of ${token} at ${metadata.timestamp}.`)
                 return "accept";
             case "safeMint":
                 [to, uri] = args;
@@ -69,7 +69,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                     functionName: "deployAnyContract",
                     args: [bytecode]
                   });
-                app.createVoucher({destination: "0xDdDdEea5b5Faa61D9095383BCF229268Af700B93", payload: encodedData});
+                app.createVoucher({destination: "0x87B6f9486B4474947884F1374f008a5745605d2B", payload: encodedData});
                 console.log(`The account ${metadata.msg_sender} is deploying a contract at ${metadata.timestamp}.`)
                 return "accept";
         }
