@@ -1,8 +1,0 @@
-{
-  "sepolia":{
-      "ERC":"0xb756A79Ff38E1B7976f0CbEe52873a2f46407cdd"
-  },
-  "mumbai":{
-      "FOREST_RESERVE_ADDRESS":"0x03E0723D947B0Cc2d6E5224f3Ea2DbDf5A4d9d0E"
-  }
-}
