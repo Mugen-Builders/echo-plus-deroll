@@ -15,7 +15,6 @@ graph TD
     classDef master fill: #7AF8FA,color:#000
     classDef external fill:#85b4ff,color:#000
 
-    ERC20Deroll:::core
     ERC721Deroll:::core
     ERC1155Deroll:::core
     DeployerPlugin:::core
@@ -31,7 +30,6 @@ graph TD
     Frontend --> ERC721Deroll
     Frontend --> ERC1155Deroll
     
-    Application --> ERC20Deroll
     Application --> ERC721Deroll
     Application --> ERC1155Deroll
     Application --> DeployerPlugin
@@ -58,21 +56,6 @@ graph TD
 ## 3. Vouchers X Deroll Assets:
 
 The Cartesi DApps deployed on the networks supported by this application can, through user interactions using vouchers, handle the most commonly used patterns of assets supported by the CRF portals, i.e., [Cartesi Rollups Framework](https://docs.cartesi.io/cartesi-rollups/).
-
-### - Interacting w/ ERC20Deroll: 
-
-```mermaid
-graph TD
-    classDef core fill:#ffe95a,color:#000
-    classDef external fill:#85b4ff,color:#000
-
-    Anyone:::core
-    ERC20Deroll:::external
-
-    ERC20Deroll -- mint --> Anyone
-    Anyone -- approve --> ERC20Deroll
-    ERC20Deroll -- ... --> Anyone
-```
 
 ### - Interacting w/ ERC721Deroll:
 
