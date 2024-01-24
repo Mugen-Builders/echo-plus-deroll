@@ -26,7 +26,6 @@ graph TD
     CRF --> Application
 
     Frontend --> DeployerPlugin
-    Frontend --> ERC20Deroll
     Frontend --> ERC721Deroll
     Frontend --> ERC1155Deroll
     
