@@ -4,6 +4,6 @@
 [submodule "contracts/lib/openzeppelin-contracts"]
 	path = contracts/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
-[submodule "prototyp3-dev/frontend-web-cartesi"]
+[submodule "frontend"]
 	path = frontend
 	url = https://github.com/prototyp3-dev/frontend-web-cartesi
