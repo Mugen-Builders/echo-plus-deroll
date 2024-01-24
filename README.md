@@ -32,9 +32,14 @@
 
 ## Setup:
 
-- The system setup is divided into two parts:
+- The system setup is divided into three parts:
 
-  - First, you should follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/dapp) to build the application and run it using the [Sunodo](https://docs.sunodo.io/guide/introduction/what-is-sunodo).
+  - First of all, clone this repo using the code below:
+    ```Bash
+    git clone --recursive git@github.com:Mugen-Builders/echo-plus-deroll.git
+    ```
+    
+  - You should follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/dapp) to build the application and run it using the [Sunodo](https://docs.sunodo.io/guide/introduction/what-is-sunodo).
 
   - After that, follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/contracts#3-how-to-run) for deploying the contracts.
 
