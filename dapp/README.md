@@ -1,8 +1,5 @@
 # DApp
 
-This is a template for TypeScript Cartesi DApps. It uses node to execute the backend application.
-The application entrypoint is the `src/index.ts` file.
-
 ## Requirements
 
 Please refer to the [rollups-examples requirements](https://github.com/cartesi/rollups-examples/tree/main/README.md#requirements).
