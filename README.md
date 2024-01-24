@@ -27,7 +27,7 @@
 
   10th "As a user, I want to request the minting of an NFT ( ERC721 ) for my address on Layer 1"
 
-  11th "As a user, I want to request the minting of a batch of NFTs ( ERC1155 ) for my address on Layer 1."
+  11th "As a user, I want to request the minting of NFTs ( ERC1155 ) for my address on Layer 1."
   ```
 
 ## Setup:
@@ -279,7 +279,7 @@
   - Contract Function: "addInput(address app, bytes calldata payload)"
   - Contract Address: 0x59b22D57D4f067708AB0c00552767405926dc768
 
-#### Mint an NFT:
+#### Mint an NFT (ERC721):
 
 - User story number 10
 - Required past interactions: No past interactions.
@@ -311,7 +311,7 @@
   - Contract Function: "addInput(address app, bytes calldata payload)"
   - Contract Address: 0x59b22D57D4f067708AB0c00552767405926dc768
 
-#### Mint a batch of NFTs
+#### Mint NFTs (ERC1155)
 
 - User story number 11
 - Required past interactions: No past interactions.
