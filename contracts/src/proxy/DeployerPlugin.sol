@@ -5,6 +5,8 @@ contract DeployerPlugin {
     error DeployFailed(address sender, address asset);
     event DeployContract(address sender, address asset);
 
+    uint256 public deploys;
+
     receive() external payable {}
 
     function deployAnyContract(
@@ -17,6 +19,7 @@ contract DeployerPlugin {
             //36 n = size of _bytecode
             addr := create(callvalue(), add(_bytecode, 0x20), mload(_bytecode))
         }
+        deploys++;
         if (addr == address(0)) revert DeployFailed(msg.sender, addr);
         emit DeployContract(msg.sender, addr);
         return addr;
