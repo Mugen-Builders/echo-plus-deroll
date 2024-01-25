@@ -115,16 +115,3 @@ TESTNET_BLOCKSCAN_API_KEY=""
 ```bash
 make deploy
 ```
-
-## 4. Viewing Documentation Locally 💻
-
-View the generated documentation locally by serving it on a local server at port 4002. Use:
-
-```bash
-$ forge doc --serve --port 4002
-```
-
-Access the documentation through your web browser by navigating to <http://localhost:4002>.
-
-
-## TODO: Add docstrings to the code for static documentation generation.
