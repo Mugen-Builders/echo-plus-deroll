@@ -8,13 +8,13 @@ const ROLLUP_SERVER = process.env.ROLLUP_HTTP_SERVER_URL || 'http://127.0.0.1:50
 const app = createApp({ url: ROLLUP_SERVER });
 
 const abi = parseAbi([
-    "function safeMint(address to, string uri)",
-    "function deployAnyContract(bytes bytecode)",
-    "function withdrawEther(address to, uint256 amount)",
-    "function transferEther(address from, address to, uint256 amount)",
-    "function mint(address to, uint256 id, uint256 amount, bytes data)",
-    "function withdrawERC20(address token, address to, uint256 amount)",
-    "function transferERC20(address token, address from, address to, uint256 amount)"
+    "function safeMint(address,string)",
+    "function deployAnyContract(bytes)",
+    "function withdrawEther(address,uint256)",
+    "function mint(address,uint256,uint256,bytes)",
+    "function transferEther(address,address,uint256)",
+    "function withdrawERC20(address,address,uint256)",
+    "function transferERC20(address,address,address,uint256)"
 ]);
 
 app.addAdvanceHandler(async ({ payload, metadata }) => {
@@ -49,7 +49,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                     functionName: "safeMint",
                     args: [to, uri]
                   });
-                app.createVoucher({destination: "0x2B1A74616f146bC609924a1AEe1cDB67F258D794", payload: encodedData})
+                app.createVoucher({destination: "0xF320e7a3416Ee6B4DEe29333451b17534833F9cC", payload: encodedData})
                 console.log(`The account ${metadata.msg_sender} is minting a token with uri ${uri} to ${to} at ${metadata.timestamp}.`)
                 return "accept";
             case "mint":

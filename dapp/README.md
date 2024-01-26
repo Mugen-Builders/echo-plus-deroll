@@ -33,5 +33,6 @@ sunodo run --epoch-duration 60
 Run with:
 
 ```shell
+npm i
 sunodo run --no-backend --epoch-duration 60
 ```

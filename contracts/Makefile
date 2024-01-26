@@ -1,6 +1,6 @@
 -include .env
 
-.PHONY: deploy env test
+.PHONY: vouchers deploy env test
 
 info: header
 
@@ -29,16 +29,24 @@ START_LOG = @echo "======================================================= START
 END_LOG = @echo "======================================================== END OF LOG =========================================================="
 
 ifeq ($(NETWORK), "localhost")
-	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -vvvvv
+  EXECUTED_VOUCHERS := script/ExecutedVouchers.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -v
+	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast -v
 else
 	RPC_URL := $(RPC_URL)
 	PRIVATE_KEY := $(PRIVATE_KEY)
-	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -vvvvv
+	EXECUTED_VOUCHERS := script/ExecutedVouchers.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -v
+	DEPLOY_NETWORK_ARGS := script/DeployContracts.s.sol --rpc-url $(RPC_URL) --private-key $(PRIVATE_KEY) --broadcast --verify --etherscan-api-key $(TESTNET_BLOCKSCAN_API_KEY) -v
 endif
 
 define test_contracts
 	$(START_LOG)
 	@forge test
+	$(END_LOG)
+endef
+
+define executed_vouchers
+	$(START_LOG)
+	@forge script $(EXECUTED_VOUCHERS)
 	$(END_LOG)
 endef
 
@@ -56,7 +64,10 @@ test:
 	@echo "$$HEADER"
 	@$(test_contracts)
 
+vouchers:
+	@echo "$$HEADER"
+	@$(executed_vouchers)
+
 deploy:
 	@echo "$$HEADER"
 	@$(deploy_contracts)
-                                                                                                                               
