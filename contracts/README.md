@@ -115,3 +115,8 @@ TESTNET_BLOCKSCAN_API_KEY=""
 ```bash
 make deploy
 ```
+
+- *Run the command below to check the new status of contracts after the voucher executions:*
+```bash
+make vouchers
+```
