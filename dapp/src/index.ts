@@ -29,8 +29,8 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                 return "accept";
             case "transferERC20":
                 [token, from, to, amount] = args;
-                wallet.transferERC20(token, from, to, amount);
-                console.log(`The account ${metadata.msg_sender} is transferring ${amount} tokens of ${token} from ${from} to ${to} at ${metadata.timestamp}`)
+                wallet.transferERC20(token, from, to, amount * BigInt(1e18));
+                console.log(`The account ${metadata.msg_sender} is transferring ${amount * BigInt(1e18)} tokens of ${token} from ${from} to ${to} at ${metadata.timestamp}`)
                 return "accept";
             case "withdrawEther":
                 [to, amount] = args;
