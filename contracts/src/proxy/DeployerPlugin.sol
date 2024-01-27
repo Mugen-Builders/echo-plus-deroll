@@ -19,8 +19,8 @@ contract DeployerPlugin {
             //36 n = size of _bytecode
             addr := create(callvalue(), add(_bytecode, 0x20), mload(_bytecode))
         }
-        deploys++;
         if (addr == address(0)) revert DeployFailed(msg.sender, addr);
+        deploys++;
         emit DeployContract(msg.sender, addr);
         return addr;
     }
