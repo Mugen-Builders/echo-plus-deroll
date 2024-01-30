@@ -1,5 +1,5 @@
 {
-  "name": "my-dapp",
+  "name": "echo-plus-deroll",
   "version": "0.1.0",
   "description": "TypeScript DApp",
   "dependencies": {
@@ -22,7 +22,7 @@
     "build": "run-s codegen compile",
     "codegen": "ts-node schema.ts",
     "compile": "tsc && esbuild ./src/index.ts --bundle --outfile=dist/index.js --platform=node --target=node20",
-    "start": "ROLLUP_HTTP_SERVER_URL=\"http://127.0.0.1:8080\" ts-node src/index.ts"
+    "start": "ROLLUP_HTTP_SERVER_URL=\"http://127.0.0.1:8080/rollup\" ts-node src/index.ts"
   },
   "keywords": [
     "cartesi"

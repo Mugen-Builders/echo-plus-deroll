@@ -38,10 +38,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         } wei from ${from} to ${to} at ${metadata.timestamp}`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is transferring ${amount * BigInt(1e18)
-                    } wei from ${from} to ${to} at ${metadata.timestamp}`
-                );
                 return "accept";
             case "transferERC20":
                 [token, from, to, amount] = args;
@@ -52,10 +48,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         } tokens of ${token} from ${from} to ${to} at ${metadata.timestamp}`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is transferring ${amount * BigInt(1e18)
-                    } tokens of ${token} from ${from} to ${to} at ${metadata.timestamp}`
-                );
                 return "accept";
             case "withdrawEther":
                 [to, amount] = args;
@@ -66,10 +58,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         } wei at ${metadata.timestamp}.`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is withdrawing ${amount * BigInt(1e18)
-                    } wei at ${metadata.timestamp}.`
-                );
                 return "accept";
             case "withdrawERC20":
                 [token, to, amount] = args;
@@ -82,10 +70,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         } tokens of ${token} at ${metadata.timestamp}.`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is withdrawing ${amount * BigInt(1e18)
-                    } tokens of ${token} at ${metadata.timestamp}.`
-                );
                 return "accept";
             case "safeMint":
                 [to, uri] = args;
@@ -103,9 +87,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         `The account ${metadata.msg_sender} is minting a token with uri ${uri} to ${to} at ${metadata.timestamp}.`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is minting a token with uri ${uri} to ${to} at ${metadata.timestamp}.`
-                );
                 return "accept";
             case "mint":
                 [to, id, amount, data] = args;
@@ -123,9 +104,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         `The account ${metadata.msg_sender} is minting ${amount} tokens of id ${id} to ${to} at ${metadata.timestamp}.`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is minting ${amount} tokens of id ${id} to ${to} at ${metadata.timestamp}.`
-                );
                 return "accept";
             case "deployAnyContract":
                 [bytecode] = args;
@@ -143,13 +121,10 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                         `The account ${metadata.msg_sender} is deploying a contract at ${metadata.timestamp}.`
                     ),
                 });
-                console.log(
-                    `The account ${metadata.msg_sender} is deploying a contract at ${metadata.timestamp}.`
-                );
                 return "accept";
         }
     } catch (e) {
-        app.createReport({ payload: toHex(`${e}`) });
+        app.createReport({ payload: toHex(`The handle of custom logic throws this error: ${e}`) })
         return "reject";
     }
 });
@@ -157,13 +132,19 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
 // create wallet
 const wallet = createWallet();
 
+try {
+    app.addAdvanceHandler(wallet.handler);
+} catch (e) {
+    app.createReport({ payload: toHex(`The handle of the wallet module throws this error: ${e}`) })
+}
+
 const router = createRouter({ app });
 
 router.add<{ sender: string }>(
     "wallet/ether/:sender",
     ({ params: { sender } }) => {
         return JSON.stringify({
-            balance: wallet.balanceOf(sender).toString(),
+            balance: `${wallet.balanceOf(sender).toString()} wei`,
         });
     }
 );
@@ -172,12 +153,11 @@ router.add<{ token: Address; sender: string }>(
     "wallet/erc20/:token/:sender",
     ({ params: { token, sender } }) => {
         return JSON.stringify({
-            balance: wallet.balanceOf(token, sender).toString(),
+            balance: `${wallet.balanceOf(token, sender).toString()} wei`,
         });
     }
 );
 
-app.addAdvanceHandler(wallet.handler);
 app.addInspectHandler(router.handler);
 
 // start app

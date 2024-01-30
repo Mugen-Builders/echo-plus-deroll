@@ -1,34 +1,24 @@
 ## Introduction:
 
-- The content below contains instructions on how to interact with the application. This app was built using Deroll, a Cartesi high-level framework written in TypeScript.
+The content below contains instructions on how to interact with the application. This app was built using Deroll, a Cartesi high-level framework written in TypeScript.
 
 ## User Stories:
 
-- Here we are going to list all the user stories that the application covers:
+Here is a list of user stories that the application covers:
 
-  ```
-  1st "As a user, I want to send Ether tokens to my wallet on Layer 2."
-
-  2nd "As a user, I want to send ERC20 tokens to my wallet on Layer 2."
-
-  3rd "As a user, I want to transfer Ether tokens between wallets on Layer 2."
-
-  4rd "As a user, I want to transfer ERC20 tokens between wallets on Layer 2."
-
-  5th "As a user, I want to withdraw my deposit in ERC20."
-
-  6th "As a user, I want to withdraw my deposit in Ether."
-
-  7th "As a user, I want to request the balance of Ether of my wallet on Layer 2."
-
-  8th "As a user, I want to request the balance of ERC20 tokens of my wallet on Layer 2."
-
-  9th "As a user, I want to deploy any contract"
-
-  10th "As a user, I want to request the minting of an NFT ( ERC721 ) for my address on Layer 1"
-
-  11th "As a user, I want to request the minting of NFTs ( ERC1155 ) for my address on Layer 1."
-  ```
+| #   | User Story Description                                                                                     |
+| --- | ---------------------------------------------------------------------------------------------------------- |
+| 1   | As a user, I want to send Ether tokens to my wallet on Layer 2.                                           |
+| 2   | As a user, I want to send ERC20 tokens to my wallet on Layer 2.                                           |
+| 3   | As a user, I want to transfer Ether tokens between wallets on Layer 2.                                    |
+| 4   | As a user, I want to transfer ERC20 tokens between wallets on Layer 2.                                    |
+| 5   | As a user, I want to withdraw my deposit in ERC20.                                                         |
+| 6   | As a user, I want to withdraw my deposit in Ether.                                                         |
+| 7   | As a user, I want to request the balance of Ether in my wallet on Layer 2.                                |
+| 8   | As a user, I want to request the balance of ERC20 tokens in my wallet on Layer 2.                         |
+| 9   | As a user, I want to deploy any contract.                                                                  |
+| 10  | As a user, I want to request the minting of an NFT (ERC721) for my address on Layer 1.                    |
+| 11  | As a user, I want to request the minting of NFTs (ERC1155) for my address on Layer 1.                     |
 
 ## Setup:
 
@@ -173,7 +163,7 @@
 - INFO:
   - Request Type: Advance State
   - Contract Name: ERC20Portal
-  - Contract Function: "depositERC20Tokens(IERC20 token, address app, uint256 amount, bytes calldata execLayerData))"
+  - Contract Function: "depositERC20Tokens(IERC20 token, address app, uint256 amount, bytes calldata execLayerData)"
   - Contract Address: 0x9C21AEb2093C32DDbC53eEF24B873BDCd1aDa1DB
 
 #### Balance of ERC20 tokens:

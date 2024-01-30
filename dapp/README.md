@@ -4,15 +4,16 @@ Currently, there are two main ways to run your application. To learn more about 
 
 ## Requirements
 
-Please refer to the [rollups-examples requirements](https://github.com/cartesi/rollups-examples/tree/main/README.md#requirements).
+Please refer to the [rollups-examples requirements](https://github.com/cartesi/rollups-examples/tree/main/README.md#requirements). 
 
-This project works with [sunodo](https://github.com/sunodo/sunodo), so run it you should first install sunodo.
+- To run using Sunodo. install the [package](https://github.com/sunodo/sunodo)
+- To run using Nonodo, install the [binary](https://github.com/gligneul/nonodo)
 
 ```shell
 npm install -g @sunodo/cli
 ```
 
-## Building
+## Building:
 
 Build with:
 
@@ -20,7 +21,7 @@ Build with:
 sunodo build
 ```
 
-## Running in Production Mode
+## Running in Production Mode:
 
 Run with:
 
@@ -28,11 +29,9 @@ Run with:
 sunodo run --epoch-duration 60
 ```
 
-## Running in Host-mode
-
-Run with:
+## Running using Nonodo:
 
 ```shell
 npm i
-sunodo run --no-backend --epoch-duration 60
+nonodo -- npm start
 ```
