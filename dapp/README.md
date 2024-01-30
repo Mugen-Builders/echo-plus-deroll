@@ -15,15 +15,11 @@ npm install -g @sunodo/cli
 
 ## Building:
 
-Build with:
-
 ```shell
 sunodo build
 ```
 
 ## Running in Production Mode:
-
-Run with:
 
 ```shell
 sunodo run --epoch-duration 60
