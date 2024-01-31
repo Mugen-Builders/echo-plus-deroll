@@ -9,10 +9,6 @@ Please refer to the [rollups-examples requirements](https://github.com/cartesi/r
 - To run using Sunodo. install the [package](https://github.com/sunodo/sunodo)
 - To run using Nonodo, install the [binary](https://github.com/gligneul/nonodo)
 
-```shell
-npm install -g @sunodo/cli
-```
-
 ## Building:
 
 ```shell
