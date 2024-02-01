@@ -18,9 +18,9 @@ const abi = parseAbi([
     "function safeMint(address,string)",
     "function deployAnyContract(bytes)",
     "function withdrawEther(address,uint256)",
+    "function withdrawERC20(address,uint256)",
     "function transferEther(address,uint256)",
     "function mint(address,uint256,uint256,bytes)",
-    "function withdrawERC20(address,address,uint256)",
     "function transferERC20(address,address,uint256)",
 ]);
 
