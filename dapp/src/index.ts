@@ -9,17 +9,16 @@ import {
     toHex,
 } from "viem";
 
-const ROLLUP_SERVER =
-    process.env.ROLLUP_HTTP_SERVER_URL || "http://127.0.0.1:5004";
+const ROLLUP_SERVER = process.env.ROLLUP_HTTP_SERVER_URL || "http://127.0.0.1:5004";
 
 const app = createApp({ url: ROLLUP_SERVER });
 
 const abi = parseAbi([
+    "function withdrawEther(uint256)",
     "function safeMint(address,string)",
     "function deployAnyContract(bytes)",
-    "function withdrawEther(address,uint256)",
-    "function withdrawERC20(address,uint256)",
     "function transferEther(address,uint256)",
+    "function withdrawERC20(address,uint256)",
     "function mint(address,uint256,uint256,bytes)",
     "function transferERC20(address,address,uint256)",
 ]);
@@ -27,95 +26,50 @@ const abi = parseAbi([
 app.addAdvanceHandler(async ({ payload, metadata }) => {
     try {
         const { functionName, args } = decodeFunctionData({ abi, data: payload });
-        let from, to, amount, token, uri, id, encodedData, bytecode, data;
+        let to, amount, token, uri, id, encodedData, bytecode, data;
         switch (functionName) {
             case "transferEther":
                 [to, amount] = args;
-                if (amount <= wallet.balanceOf(metadata.msg_sender)) {
-                    wallet.transferEther(metadata.msg_sender, to, amount * BigInt(1e18));
-                    app.createNotice({
-                        payload: toHex(
-                            `The account ${metadata.msg_sender} is transferring ${amount * BigInt(1e18)
-                            } wei from ${from} to ${to} at ${metadata.timestamp}`
-                        ),
-                    });
-                    return "accept";
-                } else {
-                    app.createReport({
-                        payload: toHex(
-                            `The account ${metadata.timestamp} does not have a sufficient balance to perform this operation`
-                        ),
-                    });
-                    return "reject";
-                }
+                wallet.transferEther(metadata.msg_sender, to, amount);
+                app.createNotice({
+                    payload: toHex(
+                        `The account ${metadata.msg_sender} is transferring ${amount
+                        } wei from ${metadata.msg_sender} to ${to} at ${metadata.timestamp}`
+                    ),
+                });
+                return "accept";
             case "transferERC20":
                 [token, to, amount] = args;
-                if (amount <= wallet.balanceOf(token, metadata.msg_sender)) {
-                    wallet.transferERC20(
-                        token,
-                        metadata.msg_sender,
-                        to,
-                        amount * BigInt(1e18)
-                    );
-                    app.createNotice({
-                        payload: toHex(
-                            `The account ${metadata.msg_sender} is transferring ${amount * BigInt(1e18)
-                            } tokens of ${token} from ${from} to ${to} at ${metadata.timestamp
-                            }`
-                        ),
-                    });
-                    return "accept";
-                } else {
-                    app.createReport({
-                        payload: toHex(
-                            `The account ${metadata.timestamp} does not have a sufficient balance of ${token} to perform this operation`
-                        ),
-                    });
-                }
+                wallet.transferERC20(token, metadata.msg_sender, to, amount);
+                app.createNotice({
+                    payload: toHex(
+                        `The account ${metadata.msg_sender} is transferring ${amount
+                        } tokens of ${token} from ${metadata.msg_sender} to ${to} at ${metadata.timestamp}`
+                    ),
+                });
+                return "accept";
             case "withdrawEther":
-                [to, amount] = args;
-                if (BigInt(amount) <= wallet.balanceOf(metadata.msg_sender)) {
-                    app.createVoucher(wallet.withdrawEther(to, BigInt(amount) * BigInt(1e18)));
-                    app.createNotice({
-                        payload: toHex(
-                            `The account ${metadata.msg_sender} is withdrawing ${BigInt(amount) * BigInt(1e18)
-                            } wei at ${metadata.timestamp}.`
-                        ),
-                    });
-                    return "accept";
-                } else {
-                    app.createReport({
-                        payload: toHex(
-                            `The account ${metadata.timestamp} does not have a sufficient balance to perform this operation`
-                        ),
-                    });
-                    return "reject";
-                }
+                [amount] = args;
+                app.createVoucher(wallet.withdrawEther(metadata.msg_sender, amount));
+                app.createNotice({
+                    payload: toHex(
+                        `The account ${metadata.msg_sender} is withdrawing ${amount
+                        } wei at ${metadata.timestamp}.`
+                    ),
+                });
+                return "accept";
             case "withdrawERC20":
                 [token, amount] = args;
-                if (BigInt(amount) <= wallet.balanceOf(token, metadata.msg_sender)) {
-                    app.createVoucher(
-                        wallet.withdrawERC20(
-                            token,
-                            metadata.msg_sender,
-                            BigInt(amount) * BigInt(1e18)
-                        )
-                    );
-                    app.createNotice({
-                        payload: toHex(
-                            `The account ${metadata.msg_sender} is withdrawing ${BigInt(amount) * BigInt(1e18)
-                            } tokens of ${token} at ${metadata.timestamp}.`
-                        ),
-                    });
-                    return "accept";
-                } else {
-                    app.createReport({
-                        payload: toHex(
-                            `The account ${metadata.timestamp} does not have a sufficient balance of ${token} to perform this operation`
-                        ),
-                    });
-                    return "reject"
-                }
+                app.createVoucher(
+                    wallet.withdrawERC20(token, metadata.msg_sender, amount)
+                );
+                app.createNotice({
+                    payload: toHex(
+                        `The account ${metadata.msg_sender} is withdrawing ${amount
+                        } tokens of ${token} at ${metadata.timestamp}.`
+                    ),
+                });
+                return "accept";
             case "safeMint":
                 [to, uri] = args;
                 encodedData = encodeFunctionData({
@@ -169,9 +123,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                 return "accept";
         }
     } catch (e) {
-        app.createReport({
-            payload: toHex(`The handle of custom logic throws this error: ${e}`),
-        });
+        app.createReport({ payload: toHex(`The handle of custom logic throws this error: ${e}`) })
         return "reject";
     }
 });
@@ -179,13 +131,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
 // create wallet
 const wallet = createWallet();
 
-try {
-    app.addAdvanceHandler(wallet.handler);
-} catch (e) {
-    app.createReport({
-        payload: toHex(`The handle of the wallet module throws this error: ${e}`),
-    });
-}
+app.addAdvanceHandler(wallet.handler);
 
 const router = createRouter({ app });
 
