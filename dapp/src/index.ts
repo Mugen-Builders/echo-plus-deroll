@@ -148,7 +148,7 @@ router.add<{ token: Address; sender: string }>(
     "wallet/erc20/:token/:sender",
     ({ params: { token, sender } }) => {
         return JSON.stringify({
-            balance: `${wallet.balanceOf(token, sender).toString()} wei`,
+            balance: `${wallet.balanceOf(token, sender).toString()}`,
         });
     }
 );
