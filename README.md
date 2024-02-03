@@ -107,23 +107,6 @@ curl http://localhost:8080/inspect/wallet/ether/0xf39Fd6e51aad88F6F4ce6aB8827279
 
 #### Transfer native tokens:
 
-<<<<<<< HEAD
-- User story number 3
-- Required past interactions: Send native tokens.
-- Step 1:
-  ```Bash
-  cast calldata "transferEther(address,uint256)" 0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C 100ether
-  ```
-   - Output:
-    ```Bash
-    0x05b1137b00000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c0000000000000000000000000000000000000000000000056bc75e2d63100000
-    ```
-- Step 2:
-  ```Bash
-  sunodo send generic --input=0x05b1137b00000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c0000000000000000000000000000000000000000000000056bc75e2d63100000
-  ```
-  ![image](https://github.com/Mugen-Builders/echo-plus-deroll/assets/89201795/176d516d-3f8b-4ac3-9514-b686d5e3c3e0)
-=======
 _User story number 3_
 
 _Required past interactions: Send native tokens._
@@ -157,7 +140,6 @@ sunodo send generic --input=0x05b1137b00000000000000000000000070ac08179605af2d9e
 ? DApp address 0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C
 ✔ Input sent: 0xfa798512c244eeee3743aba4ecefb3ba60b180dc8f6a8fbd86832905a3423938
 ```
->>>>>>> 496ce47 (docs: refactoring README)
   
 ##### Evidence:
 
