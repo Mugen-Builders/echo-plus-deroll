@@ -51,8 +51,6 @@ git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
 
 4º - After that, follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/contracts#3-how-to-run) for deploying the contracts.
 
-_**Once you have completed this process, the application setup is ready for the interactions section.**_
-
 ## Interactions:
 
 Below are the instructions on how to interact with each section of the application, and some metadata of the performed operation.
