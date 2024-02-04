@@ -459,7 +459,7 @@ curl http://localhost:8080/inspect/wallet/erc20/0xae7f61eCf06C65405560166b259C54
 }
 ```
 
-> [!NOTE]:
+> [!NOTE]
 >  - Request Type: Advance State
 >  - Contract Name: InputBox
 >  - Contract Function: "addInput(address app, bytes calldata payload)"
