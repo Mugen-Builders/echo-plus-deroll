@@ -90,13 +90,13 @@ graph TD
 
 To deploy these contracts on other networks not yet supported or on a localhost network, follow the commands below. For better interaction, enter the workspace within the "contracts" folder.
 
-- *Run the command below to generate the .env file and install the project dependencies contained in the `./.gitmodules` file:*
+### Run the command below to generate the .env file and install the project dependencies contained in the `./.gitmodules` file:
 
 ```bash
 make setup
 ```
 
-- *Run the command below to execute the tests:*
+### Run the command below to execute the tests:
 ```bash
 make test
 ```
@@ -111,12 +111,12 @@ PRIVATE_KEY="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 TESTNET_BLOCKSCAN_API_KEY=""
 ```
 
-- *Run the command below to deploy the contracts:*
+### Run the command below to deploy the contracts:
 ```bash
 make deploy
 ```
 
-- *Run the command below to check the new state of contracts after the voucher executions:*
+### Run the command below to check the new state of contracts after the voucher executions:
 ```bash
 make vouchers
 ```
