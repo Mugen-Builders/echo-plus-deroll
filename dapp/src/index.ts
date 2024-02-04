@@ -44,7 +44,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                 app.createNotice({
                     payload: toHex(
                         `The account ${metadata.msg_sender} is transferring ${amount
-                        } tokens of ${token} from ${metadata.msg_sender} to ${to} at ${metadata.timestamp}`
+                        } tokens ${token} from ${metadata.msg_sender} to ${to} at ${metadata.timestamp}`
                     ),
                 });
                 return "accept";
