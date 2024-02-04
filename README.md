@@ -26,7 +26,7 @@ Here is a list of user stories that the application covers:
 
 1º - First of all, clone this repo using the code below:
 ```Bash
-git clone --recursive git@github.com:Mugen-Builders/echo-plus-deroll.git
+git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
 ```
     
 2º - You should follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/dapp) to build the application and run ( Choose the best mode for you. ) it using [Sunodo](https://docs.sunodo.io/guide/introduction/what-is-sunodo) or [Nonodo](https://github.com/gligneul/nonodo)
