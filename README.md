@@ -49,7 +49,7 @@ git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
 
 3º - Now you can start the web frontend that will assist you in interacting with the application. Follow these [instructions](https://github.com/prototyp3-dev/frontend-web-cartesi?tab=readme-ov-file#available-scripts).
 
-4º - After that, follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/contracts#3-how-to-run) for deploying the contracts.
+4º - After that, follow the [instructions](https://github.com/henriquemarlon/custom-contracts?tab=readme-ov-file#3-how-to-run) for deploying the contracts.
 
 ## Interactions:
 
@@ -702,4 +702,4 @@ You can use the voucher section of the [frontend](http://localhost:3000) to exec
 
 ### Verifying the new state of contracts
 
-Vouchers are collateral effects actionable in the blockchain. In this context, through the execution of vouchers, it is possible to change the current state of a contract on the blockchain where the application is deployed. To check the new state of the deployed contracts in the setup section, follow the instructions provided [here](https://github.com/Mugen-Builders/learn-deroll/tree/main/contracts#check-the-new-state-of-contracts-after-the-voucher-executions).
+Vouchers are collateral effects actionable in the blockchain. In this context, through the execution of vouchers, it is possible to change the current state of a contract on the blockchain where the application is deployed. To check the new state of the deployed contracts in the setup section, follow the instructions provided [here](https://github.com/henriquemarlon/custom-contracts?tab=readme-ov-file#check-the-new-state-of-contracts-after-the-voucher-executions).
