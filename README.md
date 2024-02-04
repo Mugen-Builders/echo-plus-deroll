@@ -690,4 +690,4 @@ You can use the voucher section of the [frontend](http://localhost:3000) to exec
 
 ### Verifying the new state of contracts
 
-Vouchers are collateral effects actionable in the blockchain. In this context, through the execution of vouchers, it is possible to change the current state of a contract on the blockchain where the application is deployed. To check the new state of the deployed contracts in the setup section, follow the instructions provided here.
+Vouchers are collateral effects actionable in the blockchain. In this context, through the execution of vouchers, it is possible to change the current state of a contract on the blockchain where the application is deployed. To check the new state of the deployed contracts in the setup section, follow the instructions provided [here](https://github.com/Mugen-Builders/learn-deroll/tree/main/contracts#run-the-command-below-to-check-the-new-state-of-contracts-after-the-voucher-executions).
