@@ -1,5 +1,8 @@
 <div align="center">
-    <h1>Learn Deroll</h1>
+    <img src="https://github.com/Mugen-Builders/.github/assets/153661799/7ed08d4c-89f4-4bde-a635-0b332affbd5d" width="150" height="150">
+</div>
+<br>
+<div align="center">
     <i>An Typescript example using Sunodo/Nonodo and Deroll, a High-Level Framework</i>
 </div>
 <div align="center">
