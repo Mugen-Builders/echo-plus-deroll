@@ -15,7 +15,7 @@ Please refer to the [rollups-examples requirements](https://github.com/cartesi/r
 sunodo build
 ```
 
-## Running in Production Mode:
+## Running:
 
 ```shell
 sunodo run --epoch-duration 60
