@@ -10,6 +10,7 @@ This example aims to demonstrate the lifecycle of a DApp using Deroll.
 </div>
 <br>
 <div align="center">
+    
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--rollups-1.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/sunodo-0.10.4-blue)](https://docs.sunodo.io/guide/introduction/what-is-sunodo)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app-0.4.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
