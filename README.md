@@ -13,6 +13,7 @@ This example aims to demonstrate the lifecycle of a DApp using Deroll.
     
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--rollups-1.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/sunodo-0.10.4-blue)](https://docs.sunodo.io/guide/introduction/what-is-sunodo)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/nonodo-0.1.0-blue)](https://github.com/gligneul/nonodo/releases/tag/v0.1.0)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app-0.4.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/router-0.2.4-yellow)](https://www.npmjs.com/package/@deroll/router)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/wallet-0.3.7-yellow)](https://www.npmjs.com/package/@deroll/wallet)</a>
