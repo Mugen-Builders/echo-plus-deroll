@@ -33,8 +33,8 @@ Here is a list of user stories that the application covers:
 | 7   | As a user, I want to request the balance of Ether in my wallet on Layer 2.                                |
 | 8   | As a user, I want to request the balance of ERC20 tokens in my wallet on Layer 2.                         |
 | 9   | As a user, I want to deploy any contract.                                                                  |
-| 10  | As a user, I want to request the minting of an NFT (ERC721) for my address on Layer 1.                    |
-| 11  | As a user, I want to request the minting of NFTs (ERC1155) for my address on Layer 1.                     |
+| 10  | As a user, I want to request the minting of an NFT (ERC721) for an address on Layer 1.                    |
+| 11  | As a user, I want to request the minting of NFTs (ERC1155) for an address on Layer 1.                     |
 
 ## Setup:
 
