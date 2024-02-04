@@ -8,7 +8,7 @@
 <div align="center">
 This example aims to demonstrate the lifecycle of a DApp using Deroll.
 </div>
-
+<br>
 <div align="center">
   
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--rollups-1.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
