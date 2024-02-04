@@ -1,6 +1,19 @@
-## Introduction:
+<div align="center">
+    <h1>Learn Deroll</h1>
+    <i>An Typescript example using Sunodo/Nonodo and Deroll, a High-Level Framework</i>
+</div>
+<div align="center">
+This example aims to demonstrate the lifecycle of a DApp using Deroll.
+</div>
 
-The content below contains instructions on how to interact with the application. This app was built using Deroll, a Cartesi high-level framework written in TypeScript.
+<div align="center">
+  
+  <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--rollups-1.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/sunodo-0.10.4-blue)](https://docs.sunodo.io/guide/introduction/what-is-sunodo)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app-0.4.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/router-0.2.4-yellow)](https://www.npmjs.com/package/@deroll/router)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/wallet-0.3.7-yellow)](https://www.npmjs.com/package/@deroll/wallet)</a>
+</div>
 
 ## User Stories:
 
