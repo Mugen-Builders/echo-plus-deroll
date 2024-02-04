@@ -366,7 +366,7 @@ sunodo send generic --input=0x9db5dbe4000000000000000000000000ae7f61ecf06c654055
 
 ###### Output:
 ```Shell
-`? Chain Foundry
+? Chain Foundry
 ? RPC URL http://127.0.0.1:8545
 ? Wallet Mnemonic
 ? Mnemonic test test test test test test test test test test test junk
