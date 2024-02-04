@@ -24,16 +24,16 @@ Here is a list of user stories that the application covers:
 
 #### The system setup is divided into four parts:
 
-1 - First of all, clone this repo using the code below:
+1º - First of all, clone this repo using the code below:
 ```Bash
 git clone --recursive git@github.com:Mugen-Builders/echo-plus-deroll.git
 ```
     
-2 - You should follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/dapp) to build the application and run ( Choose the best mode for you. ) it using [Sunodo](https://docs.sunodo.io/guide/introduction/what-is-sunodo) or [Nonodo](https://github.com/gligneul/nonodo)
+2º - You should follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/dapp) to build the application and run ( Choose the best mode for you. ) it using [Sunodo](https://docs.sunodo.io/guide/introduction/what-is-sunodo) or [Nonodo](https://github.com/gligneul/nonodo)
 
-3 - Now you can start the web frontend that will assist you in interacting with the application. Follow these [instructions](https://github.com/prototyp3-dev/frontend-web-cartesi?tab=readme-ov-file#available-scripts).
+3º - Now you can start the web frontend that will assist you in interacting with the application. Follow these [instructions](https://github.com/prototyp3-dev/frontend-web-cartesi?tab=readme-ov-file#available-scripts).
 
-4 - After that, follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/contracts#3-how-to-run) for deploying the contracts.
+4º - After that, follow the [instructions](https://github.com/Mugen-Builders/echo-plus-deroll/tree/main/contracts#3-how-to-run) for deploying the contracts.
 
 _**Once you have completed this process, the application setup is ready for the interactions section.**_
 
