@@ -123,7 +123,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                 return "accept";
         }
     } catch (e) {
-        app.createReport({ payload: toHex(`The handle of custom logic throws this error: ${e}`) })
         return "reject";
     }
 });
