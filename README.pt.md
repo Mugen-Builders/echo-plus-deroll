@@ -53,11 +53,6 @@ Aqui está uma lista de histórias de usuário que a aplicação cobre:
 git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
 ```
 
-3º - Execute o comando abaixo para implantar os contratos:
-```bash
-$ make contracts
-```
-
 ## Interações:
 
 Abaixo estão as instruções sobre como interagir com cada seção da aplicação e alguns metadados das operações realizadas.
