@@ -16,7 +16,6 @@ const app = createApp({ url: ROLLUP_SERVER });
 const abi = parseAbi([
     "function withdrawEther(uint256)",
     "function safeMint(address,string)",
-    "function deployAnyContract(bytes)",
     "function transferEther(address,uint256)",
     "function withdrawERC20(address,uint256)",
     "function mint(address,uint256,uint256,bytes)",
@@ -104,23 +103,6 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
                     ),
                 });
                 return "accept";
-            case "deployAnyContract":
-                [bytecode] = args;
-                encodedData = encodeFunctionData({
-                    abi: abi,
-                    functionName: "deployAnyContract",
-                    args: [bytecode],
-                });
-                app.createVoucher({
-                    destination: "0x87B6f9486B4474947884F1374f008a5745605d2B",
-                    payload: encodedData,
-                });
-                app.createNotice({
-                    payload: toHex(
-                        `The account ${metadata.msg_sender} is deploying a contract at ${metadata.timestamp}.`
-                    ),
-                });
-                return "accept";
         }
     } catch (e) {
         return "reject";
@@ -138,7 +120,7 @@ router.add<{ sender: string }>(
     "wallet/ether/:sender",
     ({ params: { sender } }) => {
         return JSON.stringify({
-            balance: `${wallet.balanceOf(sender).toString()} wei`,
+            balance: `${wallet.etherBalanceOf(sender).toString()} wei`,
         });
     }
 );
@@ -147,7 +129,7 @@ router.add<{ token: Address; sender: string }>(
     "wallet/erc20/:token/:sender",
     ({ params: { token, sender } }) => {
         return JSON.stringify({
-            balance: `${wallet.balanceOf(token, sender).toString()}`,
+            balance: `${wallet.erc20BalanceOf(token, sender).toString()}`,
         });
     }
 );
