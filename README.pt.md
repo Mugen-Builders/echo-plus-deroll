@@ -487,4 +487,4 @@ curl http://localhost:8080/inspect/wallet/erc20/0x92C6bcA388E99d6B304f1Af3c3Cd74
 
 ### Executando todos os vouchers gerados
 
-Você pode usar o [Cartesi Explorer](http://localhost:8080/explorer) para executar todos os vouchers gerados pelas interações realizadas anteriormente. Note que nesta seção, ao clicar para obter a prova, você está coletando a prova da computação gerada ao final do respectivo epoch. Esta é a razão pela qual, se você usou o cli do Cartesi para executar o dapp, você precisou usar a flag ```--epoch-duration``` para controlar o tempo até o epoch ser completado, neste caso, 60 segundos.
+Você pode usar o [Cartesi Explorer](http://localhost:8080/explorer) para executar todos os vouchers gerados pelas interações realizadas anteriormente. Note que nesta seção, ao clicar para obter a prova, você está coletando a prova da computação gerada ao final do respectivo epoch. Esta é a razão pela qual, se você usou o cli do Cartesi para executar o dapp, você precisou usar a flag ```--epoch-length``` para controlar o tempo até o epoch ser completado, neste caso, 60 segundos.
