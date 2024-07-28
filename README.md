@@ -53,11 +53,6 @@ Here is a list of user stories that the application covers:
 git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
 ```
 
-3º - Run the command bellow to deploy the contracts:
-```bash
-$ make contracts
-```
-
 ## Interactions:
 
 Below are the instructions on how to interact with each section of the application, and some metadata of the performed operation. 
