@@ -6,7 +6,7 @@
     <i>Um exemplo em Typescript usando Cartesi Cli, Nonodo e Deroll como frameworks de alto nível</i>
 </div>
 <div align="center">
-Este exemplo tem como objetivo demonstrar o ciclo de vida de um DApp usando Deroll.
+<b>Este exemplo tem como objetivo demonstrar o ciclo de vida de um DApp usando Deroll.</b>
 </div>
 <br>
 <div align="center">
