@@ -50,7 +50,7 @@ Aqui está uma lista de histórias de usuário que a aplicação cobre:
 
 2º - Clone este repositório usando o código abaixo:
 ```Bash
-git clone --recursive git@github.com:Mugen-Builders/learn-deroll.git
+git clone --recursive https://github.com/Mugen-Builders/learn-deroll.git
 ```
 
 ## Interações:
