@@ -6,7 +6,7 @@
     <i>An Typescript example using Cartesi Cli, Nonodo and Deroll as High-Level Framework</i>
 </div>
 <div align="center">
-<b>This example aims to demonstrate the lifecycle of a DApp using Deroll.</b>
+<b>This example aims to demonstrate the lifecycle of a DApp using Deroll. In addition it serves as a template for integration with Avail.</b>
 </div>
 <br>
 <div align="center">
@@ -35,9 +35,12 @@ Here is a list of user stories that the application covers:
 | 7   | As a user, I want to request the balance of Ether in my wallet on Layer 2.                                |
 | 8   | As a user, I want to request the balance of ERC20 tokens in my wallet on Layer 2.                         |
 
-## Setup:
+## Setup for Avail + Cartesi Machine binary:
+As a reference for setting up your machine, [follow these steps](https://github.com/Mugen-Builders/cartesi-avail-tutorial?tab=readme-ov-file#prerequisites)
 
-#### The system setup is divided into three parts:
+## Setup for standard interactions:
+
+### This setup is divided into two parts:
 1º - Install all dependencies:
    + Cartesi Cli:
    ```bash
@@ -50,7 +53,42 @@ Here is a list of user stories that the application covers:
 
 2º - Clone this repo using the code below:
 ```Bash
-git clone --recursive https://github.com/Mugen-Builders/learn-deroll.git
+git clone https://github.com/Mugen-Builders/learn-deroll.git
+```
+
+## Running the test node:
+```bash
+$ nonodo
+```
+
+## Running the test node ( Brunodo ) with Avail integration ( Testnet ):
+```bash
+$ brunodo --avail-enabled -d --contracts-input-box-block 6850934 --rpc-url https://sepolia.drpc.org
+```
+
+## Running the test node ( Brunodo ) with Avail integration ( Locally ):
+```bash
+$ brunodo
+```
+
+## Build and run the application:
+```bash
+$ cartesi build
+```
+
+```bash
+$ cartesi run --epoch-length 60
+```
+
+## Build and run the application with Cartesi Machine binary:
+```bash
+$ cartesi build
+```
+
+```bash
+$ cartesi-machine --network \
+ --flash-drive=label:root,filename:.cartesi/image.ext2 \
+ --env=ROLLUP_HTTP_SERVER_URL=http://10.0.2.2:5004 -- /var/opt/cartesi-app/app
 ```
 
 ## Interactions:
