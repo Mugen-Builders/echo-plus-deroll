@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@deroll/app':
-    specifier: 1.0.0
-    version: 1.0.0(typescript@5.6.3)
+    specifier: 2.0.0-alpha.0
+    version: 2.0.0-alpha.0(typescript@5.6.3)
   '@deroll/router':
-    specifier: 1.0.0
-    version: 1.0.0(typescript@5.6.3)
+    specifier: 2.0.0-alpha.0
+    version: 2.0.0-alpha.0(typescript@5.6.3)
   '@deroll/wallet':
-    specifier: 1.0.0
-    version: 1.0.0(typescript@5.6.3)
+    specifier: 2.0.0-alpha.0
+    version: 2.0.0-alpha.0(typescript@5.6.3)
   openapi-fetch:
     specifier: ^0.7
     version: 0.7.10
@@ -57,10 +57,10 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@deroll/app@1.0.0(typescript@5.6.3):
-    resolution: {integrity: sha512-T7avcmxl00CY+i6hyPsnn3CpJMi3VKJTYxXvQ4QO0zceytAESa2uTl4rjpLjt/lnJsOxvECmk84oGUHjqA4jLw==}
+  /@deroll/app@2.0.0-alpha.0(typescript@5.6.3):
+    resolution: {integrity: sha512-wYLM5fuuAcz5kxBYgV1wQnLxwOwMAHTnuBsbYw2S9xcgj/VjverdJRbj+c9W69AzIK3bCp9RTSkZ8Ok/N5iOiA==}
     dependencies:
-      '@deroll/core': 1.0.0(typescript@5.6.3)
+      '@deroll/core': 2.0.0-alpha.0(typescript@5.6.3)
       openapi-fetch: 0.12.5
       viem: 2.21.45(typescript@5.6.3)
     transitivePeerDependencies:
@@ -70,8 +70,8 @@ packages:
       - zod
     dev: false
 
-  /@deroll/core@1.0.0(typescript@5.6.3):
-    resolution: {integrity: sha512-Q1oJHiB7Z2nPnVFP+IbWVxBx64SNzqSyvbix3i5BMsws+A0iWf+D6BQlDq7QUnlpUGFA1r6wGeKiDe/cn6yinw==}
+  /@deroll/core@2.0.0-alpha.0(typescript@5.6.3):
+    resolution: {integrity: sha512-ZaQWoYbQZctE0RxzclZ56xO42zX+Il7RMwgQu6cAqZ5t03eEUZ5jk/aREs7fd3dzptSpKVJdPWUd/ypVkLVLQg==}
     dependencies:
       viem: 2.21.45(typescript@5.6.3)
     transitivePeerDependencies:
@@ -81,10 +81,10 @@ packages:
       - zod
     dev: false
 
-  /@deroll/router@1.0.0(typescript@5.6.3):
-    resolution: {integrity: sha512-Fyo2GyVNUFN0SJd2y/v3rVDf+POw3vr2JmiedLYuMdrMJ3WyLOhralF+rNvYCvNq6dX61aIqFu31ykq8zpaISQ==}
+  /@deroll/router@2.0.0-alpha.0(typescript@5.6.3):
+    resolution: {integrity: sha512-f+KoHyqJmPndzD9M5EL/MOApiUqv+BuF7hxy5iKi9eJL8/SdDQcwy3b2/dKosNSUHb9jdeOcpe8hPPBF+pzVXg==}
     dependencies:
-      '@deroll/core': 1.0.0(typescript@5.6.3)
+      '@deroll/core': 2.0.0-alpha.0(typescript@5.6.3)
       path-to-regexp: 7.2.0
       viem: 2.21.45(typescript@5.6.3)
     transitivePeerDependencies:
@@ -94,10 +94,10 @@ packages:
       - zod
     dev: false
 
-  /@deroll/wallet@1.0.0(typescript@5.6.3):
-    resolution: {integrity: sha512-c7klPHJJaHldAnQJtexYv3Gboyeif1oTPbhXpWJERBn/uVfjPcmSdJ8Ygz4hyfv7UHuEcX25fEVJTm1L9llvjg==}
+  /@deroll/wallet@2.0.0-alpha.0(typescript@5.6.3):
+    resolution: {integrity: sha512-eHqEfSNDaXAcBSu/Q+Eg9GZ9GYITviPJzhvOu6cXbTtS1mmFY68O9ftjDDYjBxyAybpGTRRIpGOxxRGrAHqNYw==}
     dependencies:
-      '@deroll/core': 1.0.0(typescript@5.6.3)
+      '@deroll/core': 2.0.0-alpha.0(typescript@5.6.3)
       viem: 2.21.45(typescript@5.6.3)
     transitivePeerDependencies:
       - bufferutil
