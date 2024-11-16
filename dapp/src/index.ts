@@ -47,6 +47,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
 
         app.createVoucher({
           destination: "0x92C6bcA388E99d6B304f1Af3c3Cd749Ff0b591e2",
+          value: "0x0000000000000000000000000000000000000000000000000000000000000001",
           payload: encodeFunctionData({
             abi: parseAbi(["function mint(address,uint256)"]),
             functionName: "mint",
