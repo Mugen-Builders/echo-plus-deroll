@@ -24,7 +24,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
       case "play":
         [terms] = args;
         app.createVoucher({
-          destination: "0x59468ea4Dd4e55F9250FBCAa15281625f4333F27",
+          destination: "0xF0F73414cC05d6Ace602B3ae435Ca9ACF9e24bF2",
           payload: encodeFunctionData({
             abi: parseAbi(["function mint(address,uint256)"]),
             functionName: "mint",
