@@ -13,10 +13,10 @@
     
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi-2.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--cli-0.15.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/1.3/quickstart/)</a>
-  <a href="">[![Static Badge](https://img.shields.io/badge/brunodo-2.15.0-beta-blue)](https://www.npmjs.com/package/nonodo)</a>
-  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app-2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
-  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/router-2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/router)</a>
-  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/wallet-2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/wallet)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/brunodo--2.15.0-beta-blue)](https://www.npmjs.com/package/nonodo)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app--2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/router--2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/router)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/wallet--2.0.0-alpha.0-yellow)](https://www.npmjs.com/package/@deroll/wallet)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/foundry-0.2.0-red)](https://book.getfoundry.sh/getting-started/installation)</a>
 </div>
 
