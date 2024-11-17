@@ -11,7 +11,7 @@
 <br>
 <div align="center">
     
-  <a href="">[![Static Badge](https://img.shields.io/badge/cartesi-2.0.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
+  <a href="">[![Static Badge](https://img.shields.io/badge/cartesi-1.4.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/cartesi--cli-0.15.0-5bd1d7)](https://docs.cartesi.io/cartesi-rollups/1.3/quickstart/)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/brunodo--2.15.0-beta-blue)](https://www.npmjs.com/package/nonodo)</a>
   <a href="">[![Static Badge](https://img.shields.io/badge/@deroll/app-1.0.0-yellow)](https://www.npmjs.com/package/@deroll/app)</a>
