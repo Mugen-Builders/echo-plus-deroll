@@ -22,7 +22,7 @@
 
 ## Setup for base layer interactions:
 
-### This setup is divided into three parts:
+### This setup is divided into two parts:
 
 1º Install Cartesi cli:
    + Cartesi Cli:
