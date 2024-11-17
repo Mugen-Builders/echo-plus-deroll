@@ -114,6 +114,12 @@ cartesi send generic --chain-id=31337 --rpc-url=http://localhost:8545 --dapp=0xa
 _Required past steps: Play._
 
 > [!WARNING]
-> - To view the tokens in your wallet, you need to add the deployed ERC20 contract address: 0x59468ea4Dd4e55F9250FBCAa15281625f4333F27.
+> - To view the tokens in your wallet, you need to add the deployed ERC20 contract address: 0xF0F73414cC05d6Ace602B3ae435Ca9ACF9e24bF2.
 
+Access the [explorer](http://localhost:8080/explorer) to execute the voucher.
 
+> [!NOTE]
+>  - Request Type: Voucher Execution
+>  - Contract Name: TestToken
+>  - Contract Function: "mint(address,uint256)"
+>  - Contract Address: 0xF0F73414cC05d6Ace602B3ae435Ca9ACF9e24bF2
