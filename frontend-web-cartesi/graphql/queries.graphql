@@ -1,17 +1,24 @@
 # NOTICES
 
-query notice($outputIndex: Int!) {
-  notice(outputIndex: $outputIndex) {
+query notice($noticeIndex: Int!, $inputIndex: Int!) {
+  notice(noticeIndex: $noticeIndex, inputIndex: $inputIndex) {
     index
     input {
-      id
       index
-      payload
     }
     payload
     proof {
-      outputIndex
-      outputHashesSiblings
+      validity {
+        inputIndexWithinEpoch
+        outputIndexWithinInput
+        outputHashesRootHash
+        vouchersEpochRootHash
+        noticesEpochRootHash
+        machineStateHash
+        outputHashInOutputHashesSiblings
+        outputHashesInEpochSiblings
+      }
+      context
     }
   }
 }
@@ -21,10 +28,24 @@ query notices {
     edges {
       node {
         index
-        payload
         input {
-          id
           index
+        }
+        payload
+      }
+    }
+  }
+}
+
+query noticesByInput($inputIndex: Int!) {
+  input(index: $inputIndex) {
+    notices {
+      edges {
+        node {
+          index
+          input {
+            index
+          }
           payload
         }
       }
@@ -35,20 +56,26 @@ query notices {
 
 # VOUCHERS
 
-query voucher($outputIndex: Int!) {
-  voucher(outputIndex: $outputIndex) {
+query voucher($voucherIndex: Int!, $inputIndex: Int!) {
+  voucher(voucherIndex: $voucherIndex, inputIndex: $inputIndex) {
     index
     input {
-      id
       index
-      payload
     }
     destination
-    value
     payload
     proof {
-      outputIndex
-      outputHashesSiblings
+      validity {
+        inputIndexWithinEpoch
+        outputIndexWithinInput
+        outputHashesRootHash
+        vouchersEpochRootHash
+        noticesEpochRootHash
+        machineStateHash
+        outputHashInOutputHashesSiblings
+        outputHashesInEpochSiblings
+      }
+      context
     }
   }
 }
@@ -59,13 +86,27 @@ query vouchers {
       node {
         index
         input {
-          id
           index
-          payload
         }
         destination
-        value
         payload
+      }
+    }
+  }
+}
+
+query vouchersByInput($inputIndex: Int!) {
+  input(index: $inputIndex) {
+    vouchers {
+      edges {
+        node {
+          index
+          input {
+            index
+          }
+          destination
+          payload
+        }
       }
     }
   }
@@ -74,13 +115,11 @@ query vouchers {
 
 # REPORTS
 
-query report($reportIndex: Int!) {
-  report(reportIndex: $reportIndex) {
+query report($reportIndex: Int!, $inputIndex: Int!) {
+  report(reportIndex: $reportIndex, inputIndex: $inputIndex) {
     index
     input {
-      id
       index
-      payload
     }
     payload
   }
@@ -92,11 +131,25 @@ query reports {
       node {
         index
         input {
-          id
           index
-          payload
         }
         payload
+      }
+    }
+  }
+}
+
+query reportsByInput($inputIndex: Int!) {
+  input(index: $inputIndex) {
+    reports {
+      edges {
+        node {
+          index
+          input {
+            index
+          }
+          payload
+        }
       }
     }
   }

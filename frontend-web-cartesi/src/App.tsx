@@ -1,51 +1,71 @@
+// Copyright 2022 Cartesi Pte. Ltd.
+
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy
+// of the license at http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations
+// under the License.
+
 import { FC } from "react";
+import injectedModule from "@web3-onboard/injected-wallets";
+import { init } from "@web3-onboard/react";
 import { useState } from "react";
 
-import { Network } from "./Network";
-import { Inspect } from "./Inspect";
-import { Input } from "./Input";
-import { Portals } from "./Portals";
-import { Reports } from "./Reports";
+import { GraphQLProvider } from "./GraphQL";
 import { Notices } from "./Notices";
+import { Input } from "./Input";
+import { Inspect } from "./Inspect";
+import { Network } from "./Network";
 import { Vouchers } from "./Vouchers";
+import { Reports } from "./Reports";
+import configFile from "./config.json";
+
+const config: any = configFile;
+
+const injected: any = injectedModule();
+init({
+    wallets: [injected],
+    chains: Object.entries(config).map(([k, v]: [string, any], i) => ({id: k, token: v.token, label: v.label, rpcUrl: v.rpcUrl})),
+    appMetadata: {
+        name: "Cartesi Rollups Test DApp",
+        icon: "<svg><svg/>",
+        description: "Demo app for Cartesi Rollups",
+        recommendedInjectedWallets: [
+            { name: "MetaMask", url: "https://metamask.io" },
+        ],
+    },
+});
 
 const App: FC = () => {
-    const [appAddress, setAppAddress] = useState<`0x${string}`|undefined>("0x75135d8ADb7180640d29d822D9AD59E83E8695b2");
+    const [dappAddress, setDappAddress] = useState<string>("0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C");
 
-    const [chainId, setChainId] = useState<string>();
-
-    const connect = (chain:string|undefined,_:string|undefined) => {
-      setChainId(chain)
-    }
-    
     return (
         <div>
-            <Network onChange={connect}/>
-            { chainId ? <>
+            <Network />
+            <GraphQLProvider>
                 <div>
                     Dapp Address: <input
                         type="text"
-                        value={appAddress}
-                        onChange={(e) => setAppAddress(e.target.value as `0x${string}`)}
+                        value={dappAddress}
+                        onChange={(e) => setDappAddress(e.target.value)}
                     />
                     <br /><br />
                 </div>
-                { appAddress ? <>
-                    <h2>Inspect</h2>
-                    <Inspect chain={chainId} appAddress={appAddress} />
-                    <h2>Input</h2>
-                    <Input chain={chainId} appAddress={appAddress} />
-                    <h2>Portals</h2>
-                    <Portals chain={chainId} appAddress={appAddress} />
-                    <h2>Reports</h2>
-                    <Reports chain={chainId} appAddress={appAddress} />
-                    <h2>Notices</h2>
-                    <Notices chain={chainId} appAddress={appAddress} />
-                    <h2>Vouchers</h2>
-                    <Vouchers chain={chainId} appAddress={appAddress} />
-                </> : <></> }
-            </> : <></>
-            }
+                <h2>Inspect</h2>
+                <Inspect />
+                <h2>Input</h2>
+                <Input dappAddress={dappAddress} />
+                <h2>Reports</h2>
+                <Reports />
+                <h2>Notices</h2>
+                <Notices />
+                <h2>Vouchers</h2>
+                <Vouchers dappAddress={dappAddress} />
+            </GraphQLProvider>
         </div>
     );
 };

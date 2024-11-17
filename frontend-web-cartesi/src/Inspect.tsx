@@ -1,35 +1,43 @@
+// Copyright 2022 Cartesi Pte. Ltd.
+
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy
+// of the license at http://www.apache.org/licenses/LICENSE-2.0
+
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations
+// under the License.
+
 import React, { useState } from "react";
-import { fromHex } from 'viem'
+import { useSetChain } from "@web3-onboard/react";
+import { ethers } from "ethers";
+// import { useRollups } from "./useRollups";
 
 import configFile from "./config.json";
-import { INodeComponentProps } from "./utils/chain";
 
 const config: any = configFile;
 
-
-export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps) => {
-    const [inspectData, setInspectData] = useState<string>("");
-    const [reports, setReports] = useState<string[]>([]);
-    const [metadata, setMetadata] = useState<any>({});
-    const [hexData, setHexData] = useState<boolean>(false);
-    const [postData, setPostData] = useState<boolean>(false);
-
+export const Inspect: React.FC = () => {
+    // const rollups = useRollups();
+    const [{ connectedChain }] = useSetChain();
     const inspectCall = async (str: string) => {
         let payload = str;
         if (hexData) {
-            const uint8array = fromHex(str as `0x${string}`,'bytes');
+            const uint8array = ethers.utils.arrayify(str);
             payload = new TextDecoder().decode(uint8array);
         }
-        if (!props.chain){
+        if (!connectedChain){
             return;
         }
         
         let apiURL= ""
 
-        if(config.chains[props.chain]?.inspectAPIURL) {
-            apiURL = `${config.chains[props.chain].inspectAPIURL}/inspect/${props.appAddress}`;
+        if(config[connectedChain.id]?.inspectAPIURL) {
+            apiURL = `${config[connectedChain.id].inspectAPIURL}/inspect`;
         } else {
-            console.error(`No inspect interface defined for chain ${props.chain}`);
+            console.error(`No inspect interface defined for chain ${connectedChain.id}`);
             return;
         }
         
@@ -38,7 +46,7 @@ export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps
             const payloadBlob = new TextEncoder().encode(payload);
             fetchData = fetch(`${apiURL}`, { method: 'POST', body: payloadBlob });
         } else {
-            fetchData = fetch(`${apiURL}/${encodeURIComponent(payload)}`);
+            fetchData = fetch(`${apiURL}/${payload}`);
         }
         fetchData
             .then(response => response.json())
@@ -47,6 +55,12 @@ export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps
                 setMetadata({metadata:data.metadata, status: data.status, exception_payload: data.exception_payload});
             });
     };
+    const [inspectData, setInspectData] = useState<string>("");
+    const [reports, setReports] = useState<string[]>([]);
+    const [metadata, setMetadata] = useState<any>({});
+    const [hexData, setHexData] = useState<boolean>(false);
+    const [postData, setPostData] = useState<boolean>(false);
+
     return (
         <div>
             <div>
@@ -55,9 +69,9 @@ export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps
                     value={inspectData}
                     onChange={(e) => setInspectData(e.target.value)}
                 />
-                <input type="checkbox" checked={hexData} onChange={(_) => setHexData(!hexData)}/><span>Raw Hex </span>
-                <input type="checkbox" checked={postData} onChange={(_) => setPostData(!postData)}/><span>POST </span>
-                <button onClick={() => inspectCall(inspectData)} disabled={!props.chain}>
+                <input type="checkbox" checked={hexData} onChange={(e) => setHexData(!hexData)}/><span>Raw Hex </span>
+                <input type="checkbox" checked={postData} onChange={(e) => setPostData(!postData)}/><span>POST </span>
+                <button onClick={() => inspectCall(inspectData)}>
                     Send
                 </button>
             </div>
@@ -76,7 +90,7 @@ export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps
                         <td>{metadata.metadata ? metadata.metadata.active_epoch_index : ""}</td>
                         <td>{metadata.metadata ? metadata.metadata.current_input_index : ""}</td>
                         <td>{metadata.status}</td>
-                        <td>{metadata.exception_payload ? fromHex(metadata.exception_payload, 'string'): ""}</td>
+                        <td>{metadata.exception_payload ? ethers.utils.toUtf8String(metadata.exception_payload): ""}</td>
                     </tr>
                 </tbody>
             </table>
@@ -90,7 +104,7 @@ export const Inspect: React.FC<INodeComponentProps> = (props:INodeComponentProps
                     )}
                     {reports?.map((n: any) => (
                         <tr key={`${n.payload}`}>
-                            <td>{fromHex(n.payload, 'string')}</td>
+                            <td>{ethers.utils.toUtf8String(n.payload)}</td>
                         </tr>
                     ))}
                 </tbody>

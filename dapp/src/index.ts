@@ -23,49 +23,20 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
     switch (functionName) {
       case "play":
         [terms] = args;
-
-        if (typeof terms !== "number" || terms < 1) {
-          throw new Error("Invalid terms: must be a positive integer");
-        }
-
-        let e = 0;
-
-        function factorial(n: number): number {
-          if (n === 0 || n === 1) {
-            return 1;
-          }
-          return n * factorial(n - 1);
-        }
-
-        for (let i = 0; i < terms; i++) {
-          e += 1 / factorial(i);
-        }
-
-        if (e < 1) {
-          throw new Error("Calculated value of e is less than 1");
-        }
-
         app.createVoucher({
           destination: "0x59468ea4Dd4e55F9250FBCAa15281625f4333F27",
-          value: "0x0000000000000000000000000000000000000000000000000000000000000001",
           payload: encodeFunctionData({
             abi: parseAbi(["function mint(address,uint256)"]),
             functionName: "mint",
             args: [
               metadata.msg_sender,
-              wallet.erc20BalanceOf(
-                "0x59468ea4Dd4e55F9250FBCAa15281625f4333F27",
-                metadata.msg_sender
-              ),
+              BigInt(1000) * terms,
             ],
           }),
         });
-
         app.createNotice({
           payload: toHex(
-            `The account ${metadata.msg_sender} calculated e as ${e.toFixed(
-              5
-            )} using ${terms} terms.`
+            `The account ${metadata.msg_sender} has played ${terms} terms`
           ),
         });
         return "accept";

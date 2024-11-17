@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "An Typescript example using Cartesi Cli, Nonodo and Deroll as High-Level Framework",
   "dependencies": {
-    "@deroll/app": "2.0.0-alpha.0",
-    "@deroll/router": "2.0.0-alpha.0",
-    "@deroll/wallet": "2.0.0-alpha.0",
+    "@deroll/app": "1.0.0",
+    "@deroll/router": "1.0.0",
+    "@deroll/wallet": "1.0.0",
     "openapi-fetch": "^0.7",  
     "viem": "^2.21.34"
   },

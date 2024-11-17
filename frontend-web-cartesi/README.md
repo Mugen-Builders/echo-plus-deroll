@@ -1,7 +1,7 @@
 # Cartesi frontend web
 
 ```
-Cartesi Rollups Node version: 2.0.x
+Cartesi Rollups version: 1.0.x
 ```
 
 ## Features
@@ -10,7 +10,7 @@ With this project you can test some interactions with the Cartesi Rollups projec
 
 1. Metamask integration
 2. Send Inspect state Requests and Listing Reports response
-3. Sending L2 EIP-712 inputs
+3. Sending Dapp Address with the DApp Relay
 4. Sending inputs
 5. Depositing Ether
 6. Depositing ERC20
@@ -20,8 +20,7 @@ With this project you can test some interactions with the Cartesi Rollups projec
 10. Listing Notices
 11. Listing Reports
 12. Listing Vouchers
-13. Validating Notices
-14. Executing Vouchers
+13. Executing Vouchers
 
 ## Configurtion
 
@@ -39,7 +38,7 @@ yarn codegen
 to build the app.
 
 ```shell
-yarn dev --port 3000
+yarn start
 ```
 
 Runs the app in the development mode.\
@@ -51,7 +50,7 @@ To execute Vouchers, the voucher epoch must be finalized so the rollups framewor
 As a reminder, you can advance time in hardhat with the command:
 
 ```shell
-curl -H "Content-Type: application/json" http://localhost:8545 -d '{"id":1337,"jsonrpc":"2.0","method":"anvil_mine","params":[7200]}' 
+curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[864010]}' http://localhost:8545
 ```
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lynoferraz/frontend-web-cartesi)
