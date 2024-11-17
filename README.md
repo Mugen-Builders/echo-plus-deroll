@@ -20,8 +20,7 @@
   <a href="">[![Static Badge](https://img.shields.io/badge/foundry-0.2.0-red)](https://book.getfoundry.sh/getting-started/installation)</a>
 </div>
 
-## Setup for Avail + Cartesi Machine interactions:
-As a reference for setting up your machine, [follow these steps](https://github.com/Mugen-Builders/cartesi-avail-tutorial?tab=readme-ov-file#prerequisites)
+## Setup for base layer interactions:
 
 ### This setup is divided into three parts:
 
@@ -38,21 +37,13 @@ As a reference for setting up your machine, [follow these steps](https://github.
    git checkout simple-dapp-onchain-interaction
    ```
 
-3º Running the frontend:
-  ```bash
-  cd frontend-web-cartesi \
-  yarn \
-  yarn codegen \
-  yarn start
-  ```
-
 ## Build and run the application:
 ```bash
 $ cartesi build
 ```
 
 ```bash
-$ cartesi run --epoch-length 60
+$ cartesi run --epoch-length 10
 ```
 
 ## Deploy a ERC20 Token:
@@ -66,14 +57,6 @@ make token
 ## Interactions:
 
 Below are the instructions on how to interact with each section of the application, and some metadata of the performed operation. 
-
-#### Send Tokens ERC20:
-
-> [!NOTE]
->  - Request Type: Advance State
->  - Contract Name: ERC20Portal
->  - Contract Function: "depositERC20Tokens(IERC20 token, address appContract, uint256 value, bytes calldata execLayerData)"
->  - Contract Address: 0x9C21AEb2093C32DDbC53eEF24B873BDCd1aDa1DB
 
 #### Play:
 
