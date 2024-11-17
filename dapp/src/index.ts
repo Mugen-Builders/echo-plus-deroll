@@ -46,7 +46,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
         }
 
         app.createVoucher({
-          destination: "0x92C6bcA388E99d6B304f1Af3c3Cd749Ff0b591e2",
+          destination: "0x59468ea4Dd4e55F9250FBCAa15281625f4333F27",
           value: "0x0000000000000000000000000000000000000000000000000000000000000001",
           payload: encodeFunctionData({
             abi: parseAbi(["function mint(address,uint256)"]),
@@ -54,7 +54,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
             args: [
               metadata.msg_sender,
               wallet.erc20BalanceOf(
-                "0x92C6bcA388E99d6B304f1Af3c3Cd749Ff0b591e2",
+                "0x59468ea4Dd4e55F9250FBCAa15281625f4333F27",
                 metadata.msg_sender
               ),
             ],
