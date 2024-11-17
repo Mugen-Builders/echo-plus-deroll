@@ -108,3 +108,12 @@ cartesi send generic --chain-id=31337 --rpc-url=http://localhost:8545 --dapp=0xa
 >  - Contract Name: InputBox
 >  - Contract Function: "addInput(address app, bytes calldata payload)"
 >  - Contract Address: 0x59b22D57D4f067708AB0c00552767405926dc768
+
+#### Execute voucher
+
+_Required past steps: Play._
+
+> [!WARNING]
+> - To view the tokens in your wallet, you need to add the deployed ERC20 contract address: 0x59468ea4Dd4e55F9250FBCAa15281625f4333F27.
+
+
