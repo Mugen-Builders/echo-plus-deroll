@@ -40,7 +40,7 @@ As a reference for setting up your machine, [follow these steps](https://github.
 
 3º Running the frontend:
   ```bash
-  cd frontent \
+  cd frontend-web-cartesi \
   yarn \
   yarn codegen \
   yarn dev --port 3000
